@@ -77,13 +77,14 @@ RCA_comp : ripple_adder
         if reset = '0' THEN
             result <= (OTHERS => '0');
             c_reg  <= '0';
-        elseif rising_edge(clk) then
+        elsif rising_edge(clk) then
             CASE control is
                 when "0000" => result <= A and B;
                 when "0001" => result <= A or B;
                 when "0010" => result <= RCA_output; --ADD
                 when "0110" => result <= RCA_output; --SUB
-                when "0111" => result <= 
-                when "1100" => result <= A nor B;
-
+                when "0111" => result <= ;
+                when "1100" => result <= A nor B
+             end case;
+        end if;
 end Behavioral;
